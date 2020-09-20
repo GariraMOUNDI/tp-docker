@@ -1,0 +1,28 @@
+version: '2.4'
+
+services:
+  Tp_DevOps:
+    image: postgres
+    container_name: Tp_DevOps
+    mem_limit: 50m
+    volumes :
+      - ./postgres:/var/lib/postgressql/data
+    environment:
+      POSTGRES_USER: tp_devops
+      POSTGRES_PASSWORD: tp_devops
+    ports:
+      - 5432:5432
+
+  App :
+    container_name: App
+    image: mg/tp_devops
+    environment:
+      - database.url=127.0.0.1:5432/tp_devops
+      - database.username=tp_devops
+      - database.password=tp_devops
+    ports:
+      - 8080:8080
+    volumes:
+      - ./app/docker:/var/lib/app/data
+    depends_on:
+      - Tp_DevOps
