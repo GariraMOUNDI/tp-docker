@@ -7,6 +7,14 @@ jobs:
   super-lint:
     name: Build the app
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
