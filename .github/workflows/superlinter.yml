@@ -10,16 +10,16 @@ jobs:
     steps:
       - name: Build
         run: |-
-          gradlew assembble
+          ./gradlew assembble
       
       - name: Test
         run: |-
-          gradlew test
+          ./gradlew check
           
       - name: Build image
         run: |-
-          gradlew Image_docker
+          ./gradlew Image_docker
 
       - name: Push Image
         run: |-
-          docker push .../tp_devops
+          ./docker push .../tp_devops
