@@ -11,3 +11,15 @@ jobs:
       - name: Build
         run: |-
           gradlew assembble
+      
+      - name: Test
+        run: |-
+          gradlew test
+          
+      - name: Build image
+        run: |-
+          gradlew Image_docker
+
+      - name: Push Image
+        run: |-
+          docker push .../tp_devops
