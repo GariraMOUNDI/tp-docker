@@ -13,7 +13,7 @@ jobs:
         
       - name: Build
         run: |-
-          ./gradlew assembble
+          ./gradlew assemble
       
       - name: Test
         run: |-
