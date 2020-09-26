@@ -7,7 +7,7 @@ jobs:
   super-lint:
     name: Build the app
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: openjdk:7
     services:
       postgres:
         image: postgres:11
